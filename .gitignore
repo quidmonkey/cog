@@ -16,3 +16,12 @@ Thumbs.db
 # Node (if any tooling is added later)
 node_modules/
 dist/
+
+# Cog memory — lives at $COG_HOME/memory, own independent git repo.
+# Physically checked out here for convenience (COG_HOME points at this
+# tool's root) but intentionally NOT tracked by this repo — see
+# git@github.com:quidmonkey/cog-memory.git for its own history/remote.
+memory/
+
+# Runtime lock files
+.claude/scheduled_tasks.lock
