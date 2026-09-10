@@ -62,7 +62,7 @@ Review output of recent housekeeping and reflect runs:
 **Scorecard metrics:**
 - Core `patterns.md`: line count / 70 (target: ≤1.0)
 - Satellite pattern files: list each with line count (cap: 30)
-- Entity compression ratio: total entity lines / total entries (target: ≤3.0)
+- Entity compression ratio: sum of each entry's own content lines (the lines under its `### ` heading — exclude blank lines, `## ` section headers, and any front-matter like an Acronyms list) / entry count. Do NOT use raw `wc -l` of the whole file over `grep -c '^### '` — that numerator counts blank-line separators and section headers as if they were entity content and overstates the ratio (caught 2026-09-10: egen measured 5.57 by raw line count vs. 3.19 by actual content lines, a false breach that persisted 3+ cycles). Target: ≤5.0 — recalibrated from ≤3.0 by Run 1, 2026-04-01; this file wasn't updated to match until 2026-09-03
 - Hot-memory line counts vs 50-line cap
 - Domain INDEX.md freshness: last-updated date vs today (target: ≤14 days). If INDEX.md files don't exist yet, that's not staleness — route one item: "Run the housekeeping skill to generate domain indexes."
 - Temporal markers: count of expired-but-not-swept markers (target: 0)
@@ -77,7 +77,7 @@ This is the critical difference between theatrical evolve (reporting problems) a
 |--------|-----------|--------|
 | `patterns.md` line ratio > 1.0 | Exceeds 70 lines | → `cog-meta/action-items.md`: "Merge or replace patterns to bring below 70 lines" |
 | Satellite pattern file > 30 lines | Exceeds soft cap | → domain `action-items.md`: "Compress {domain} patterns" |
-| Entity compression > 3.0 | Entries too verbose | → domain `action-items.md`: "Compress entities or promote to threads" |
+| Entity compression > 5.0 | Entries too verbose | → domain `action-items.md`: "Compress entities or promote to threads" |
 | Hot-memory > 50 lines | Exceeds cap | → `action-items.md`: "Prune hot-memory (run the housekeeping skill)" |
 | INDEX.md > 14 days stale | Drift risk | → `cog-meta/action-items.md`: "Rebuild domain indexes (run the housekeeping skill)" |
 | Expired temporal markers > 0 | Stale facts | → `cog-meta/action-items.md`: "Sweep expired temporal markers (run the housekeeping skill)" |

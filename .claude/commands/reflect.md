@@ -73,7 +73,7 @@ Rigorous observation → pattern promotion. Three gates prevent noise from enter
 
 **Gate 1: Cluster Detection**
 
-Scan all `observations.md` files. Group entries by primary tag. A cluster is promotable when ALL conditions are met:
+Scan all `observations.md` files. Group entries by primary tag — the most specific shared tag, not whichever tag happens to be listed first (a domain's entries often lead with a broad, positionally-first tag like "work"; look past it to the 2nd+ tags for the real signal). A cluster is promotable when ALL conditions are met:
 - ≥3 entries with the same primary tag
 - Entries span ≥7 days (not a single-day burst)
 - ≥3 distinct dates (not the same insight repeated on one day)
@@ -115,7 +115,7 @@ Clusters with ≥5 entries in <7 days don't meet the 7-day span requirement. But
 ### 4. Entity Format Enforcement
 
 Scan all `entities.md` files:
-1. **3-line check**: Entries >3 lines → compress or flag for thread promotion
+1. **3-line check (6-8 for `tier: extended`)**: Entries over their tier's cap → compress or flag for thread promotion — see `cog.md` Memory Rules #5
 2. **Status/last fields**: Every entry needs `status:` and `last:` fields
 3. **Cross-domain pointers**: Same person in multiple files → one canonical, others `see [[link]]`
 

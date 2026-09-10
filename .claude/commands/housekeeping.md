@@ -130,7 +130,7 @@ For each non-glacier memory file:
 ### 7. Entity Format Enforcement
 
 Scan all `entities.md`:
-1. **3-line max**: Entries >3 lines → compress or flag for thread promotion
+1. **3-line max (6-8 for `tier: extended`)**: Entries over their tier's cap → compress, promote to a thread, or (untagged entries only) mark `tier: extended` if the relationship is genuinely high-touch/recurring and not yet thread-worthy — see `cog.md` Memory Rules #5. An extended entry needing a 4th distinct dated event, or exceeding 8 lines, gets promoted to a thread, not a higher cap.
 2. **Glacier candidates**: Inactive >6 months → move to glacier (leave stub)
 3. **Missing metadata**: Flag entries without `status:` or `last:` fields
 

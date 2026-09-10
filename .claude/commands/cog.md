@@ -93,7 +93,7 @@ memory/
 2. **Write immediately**: Don't wait to save something worth remembering
 3. **Observations are append-only**: `- YYYY-MM-DD [tags]: <observation>` — never edit past entries
 4. **Action items**: `- [ ] task | due:YYYY-MM-DD | pri:high/med/low | added:YYYY-MM-DD`
-5. **Entities**: 3-line compact registry. `### Name (relationship)` / pipe-separated facts / `status: active | last: YYYY-MM-DD`
+5. **Entities**: two-tier compact registry. `### Name (relationship)` / pipe-separated facts / `status: active | last: YYYY-MM-DD`. Default cap is 3 lines. A high-touch, recurring relationship (direct report, skip-level, standing 1:1) that keeps outgrowing 3 lines may carry `| tier: extended` on its status line for a 6-8 line cap instead — but once it needs a 4th distinct dated event logged inline, or would exceed 8 lines, promote it to a thread rather than raising the cap again. (Adopted 2026-09-10, replacing a single 3-line-for-everyone rule — see `cog-meta/self-observations.md`.)
 6. **Hot memory <50 lines**: Prune aggressively, detail goes in observations
 7. **Single Source of Truth (SSOT)**: Each fact in ONE canonical file. Others reference via `[[link]]`.
 8. **Temporal validity**: Time-bounded facts SHOULD carry an expiry marker (see below).
@@ -127,7 +127,7 @@ Facts with a natural expiry (upcoming events, temporary states, countdowns) shou
 | `hot-memory.md` | Rewrite freely |
 | `observations.md` | Append only |
 | `action-items.md` | Append new, check off done |
-| `entities.md` | Edit in place (3-line max per entry) |
+| `entities.md` | Edit in place (3-line max per entry; 6-8 line max for entries tagged `tier: extended`) |
 | `calendar.md` | Edit in place |
 | `health.md` | Current State: rewrite / History: append |
 | `habits.md` | Current State: rewrite / Patterns: append |
@@ -402,7 +402,7 @@ For each domain, create `memory/{path}/` and starter files:
 <!-- L0: People, places, and things -->
 # {Label} — Entities
 
-<!-- 3-line max per entry. Format: ### Name (relationship) / facts / status|last -->
+<!-- 3-line max per entry (6-8 lines if status carries "tier: extended" — see Memory Rules #5). Format: ### Name (relationship) / facts / status|last[|tier] -->
 ```
 
 **Other files** (calendar, health, habits, projects, etc.):
