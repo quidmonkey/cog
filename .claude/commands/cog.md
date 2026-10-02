@@ -86,6 +86,8 @@ memory/
     INDEX.md                       # Per-domain L0 index (auto-generated)
   glacier/                         # Archived data by domain
     index.md                       # Glacier catalog (auto-generated)
+  private/                         # Gitignored — never committed
+    contacts.md                    # PII keyed by entity name (Rule 9)
 ```
 
 ## Memory Rules
@@ -98,6 +100,7 @@ memory/
 6. **Hot memory <50 lines**: Prune aggressively, detail goes in observations
 7. **Single Source of Truth (SSOT)**: Each fact in ONE canonical file. Others reference via `[[link]]`.
 8. **Temporal validity**: Time-bounded facts SHOULD carry an expiry marker (see below).
+9. **PII stays private**: Personal contact details and identifiers for individuals (home address, personal phone, personal email, account numbers, government IDs) go in `memory/private/contacts.md`, keyed by `### Name`. `memory/private/` is gitignored. The entity entry holds only a pointer: `Personal contact details → [[private/contacts#Name]] (gitignored)`. Work emails and business phone numbers may stay in the entity entry.
 
 ## Temporal Validity Markers
 
