@@ -3,7 +3,8 @@ name: cog
 description: >
   Plain-text persistent memory system for AI agents. Conventions for L0 progressive
   loading, three-tier storage (hot/warm/glacier), single-source-of-truth, temporal
-  validity, and wiki-links. Run /cog to bootstrap or reconfigure domains.
+  validity, and wiki-links. Run /cog to load notes across all domains;
+  run /cog setup to bootstrap or reconfigure domains.
 ---
 
 # Cog
@@ -19,7 +20,7 @@ Resolved in this order:
 1. `$COG_HOME/memory/` — if the `COG_HOME` environment variable is set
 2. `~/cog/memory/` — default fallback
 
-If the resolved path doesn't exist, run `/cog` to bootstrap it.
+If the resolved path doesn't exist, run `/cog setup` to bootstrap it.
 
 ## Three Tiers
 
@@ -286,9 +287,14 @@ Within a consolidated pulse, phases share context naturally (same conversation).
 
 ---
 
+# Invocation
+
+- **`/cog`** (with or without a query) — notes mode. Read the root `memory/hot-memory.md`, then follow the **Memory Retrieval Protocol** across every domain in `memory/domains.yml`. With a query, load only the matching domain(s). Without one, give a cross-domain overview: root hot-memory plus each non-system domain's `hot-memory.md` and open high-priority action items. Never run Setup in this mode.
+- **`/cog setup`** (or an explicit request to bootstrap, add, or reconfigure domains) — run the Setup section below.
+
 # Setup
 
-Run `/cog` to bootstrap or reconfigure. This section only executes when the skill is invoked — not during normal conversation.
+Run `/cog setup` to bootstrap or reconfigure. This section only executes when explicitly requested — not during normal conversation or plain `/cog`.
 
 ## Phase 0: Verify Environment
 

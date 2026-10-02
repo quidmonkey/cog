@@ -92,11 +92,11 @@ Spike detection: ≥5 entries in <7 days = heating topic (thread candidate, not 
 
 ## Domain Routing & Skills
 
-Domains defined in `memory/domains.yml`. Run `/cog` to configure — it also generates a routing skill per domain (e.g. `/personal`).
+Domains defined in `memory/domains.yml`. Run `/cog setup` to configure — it also generates a routing skill per domain (e.g. `/personal`).
 
 | Skill | Purpose |
 |-------|---------|
-| `/cog` | Memory conventions + setup + domain bootstrap |
+| `/cog` | Load notes across all domains (`/cog setup` bootstraps or reconfigures domains) |
 | `/personal` | Family, health, calendar (generated domain skill) |
 | `/reflect` | Mine interactions, consolidate patterns, scenario retrospectives |
 | `/evolve` | Audit architecture, auto-route threshold breaches |
